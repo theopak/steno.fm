@@ -50,14 +50,15 @@ module.exports = function (grunt) {
 
     sass: {
       options: {
-        includePaths: ['/bower_components/foundation/scss']
+        sourceMap: true,
+        includePaths: ['bower_components/foundation/scss/']
       },
       dist: {
         options: {
           outputStyle: 'extended'
         },
         files: {
-          '<%= yeoman.app %>/css/app.css': '<%= yeoman.app %>/scss/app.scss'
+          '<%= yeoman.app %>/styles/app.css': '<%= yeoman.app %>/styles/app.scss'
         }
       }
     },
@@ -98,17 +99,17 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       sass: {
-        files: '<%= yeoman.app %>/scss/**/*.scss',
+        files: '<%= yeoman.app %>/styles/**/*.scss',
         tasks: ['sass']
       },
       // jade: {
       //   files: '<%= yeoman.app %>/**/*.jade',
       //   tasks: ['jade']
       // },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
-      },
+      // styles: {
+      //   files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+      //   tasks: ['newer:copy:styles', 'autoprefixer']
+      // },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -235,6 +236,10 @@ module.exports = function (grunt) {
           'jquery.cookie',
           'foundation'
         ]
+      },
+      sass: {
+        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
 
@@ -424,10 +429,10 @@ module.exports = function (grunt) {
 
 
   // grunt.registerTask('compile-jade', ['jade']);
-  grunt.registerTask('compile-sass', ['sass']);
+  grunt.registerTask('default', ['sass']);
   grunt.registerTask('bower-install', ['wiredep']);
   
-  grunt.registerTask('default', ['compile-sass', 'bower-install', 'connect:app', 'watch']);
+  //grunt.registerTask('default', ['sass', 'bower-install', 'connect:app', 'watch']);
   grunt.registerTask('validate-js', ['jshint']);
   // grunt.registerTask('server-dist', ['connect:dist']);
   
@@ -463,7 +468,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'compile-sass',
+    'sass',
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -482,6 +487,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
+    'sass',
     'test',
     'build'
   ]);
