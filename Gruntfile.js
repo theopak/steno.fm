@@ -27,6 +27,27 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    // Node package grunt-localscreeenshots
+    autoshot: {
+      scrot_index: {
+        options: {
+          // necessary config
+          path: 'screenshots/',
+          remote: {
+            files: [{}]  // this line overrides the default, which is google.com
+          },
+          local: {
+            path: '<%= yeoman.app %>',
+            port: 9000,
+            files: [
+              { src: 'index.html', dest: 'index.png', delay: 500 }
+            ]
+          },
+          viewport: ['1024x768'] 
+        },
+      },
+    },
+
     sass: {
       options: {
         includePaths: ['/bower_components/foundation/scss']
@@ -397,6 +418,9 @@ module.exports = function (grunt) {
       }
     }
   });
+
+
+  grunt.loadNpmTasks('grunt-autoshot');
 
 
   // grunt.registerTask('compile-jade', ['jade']);

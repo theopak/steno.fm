@@ -10,6 +10,7 @@
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
+    "grunt-autoshot": "^0.2.1",
     "grunt-concurrent": "^0.5.0",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-concat": "^0.4.0",
@@ -51,6 +52,7 @@
     "grunt-wiredep": "~1.9.0",
     "grunt-usemin": "~2.5.1",
     "grunt-contrib-imagemin": "0.9.1"
+    "phantomjs": "^1.9.12",
   },
   "engines": {
     "node": ">=0.10.0"
