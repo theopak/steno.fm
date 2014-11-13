@@ -27,6 +27,38 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    sass: {
+      options: {
+        includePaths: ['/bower_components/foundation/scss']
+      },
+      dist: {
+        options: {
+          outputStyle: 'extended'
+        },
+        files: {
+          '<%= yeoman.app %>/css/app.css': '<%= app %>/scss/app.scss'
+        }
+      }
+    },
+
+    jade: {
+      compile: {
+        options: {
+          pretty: true,
+          data: {
+            debug: false
+          }
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= app %>/',
+          src: ['**/*.jade', '!**/header.jade', '!**/footer.jade'],
+          ext: '.html',
+          dest: '<%= app %>/'
+        }]
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -43,6 +75,14 @@ module.exports = function (grunt) {
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
+      },
+      sass: {
+        files: '<%= yeoman.app %>/scss/**/*.scss',
+        tasks: ['sass']
+      },
+      jade: {
+        files: '<%= yeoman.app %>/**/*.jade',
+        tasks: ['jade']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -140,6 +180,17 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/{,*/}*',
             '!<%= yeoman.dist %>/.git{,*/}*'
           ]
+        } , {
+          expand: true,
+          cwd:'<%= yeoman.app %>/',
+          src: ['fonts/**', '**/*.html', '!**/*.scss', '!bower_components/**'],
+          dest: '<%= yeoman.dist %>/'
+        } , {
+          expand: true,
+          flatten: true,
+          src: ['/bower_components/font-awesome/fonts/**'],
+          dest: '<%= yeoman.dist %>/fonts/',
+          filter: 'isFile'
         }]
       },
       server: '.tmp'
@@ -165,6 +216,18 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
+      },
+      target: {
+        src: [
+          '<%= yeoman.app %>/**/*.jade'
+        ],
+        exclude: [
+          'modernizr',
+          'font-awesome',
+          'jquery-placeholder',
+          'jquery.cookie',
+          'foundation'
+        ]
       }
     },
 
@@ -350,6 +413,17 @@ module.exports = function (grunt) {
   });
 
 
+  grunt.registerTask('compile-jade', ['jade']);
+  grunt.registerTask('compile-sass', ['sass']);
+  grunt.registerTask('bower-install', ['wiredep']);
+  
+  grunt.registerTask('default', ['compile-jade', 'compile-sass', 'bower-install', 'connect:app', 'watch']);
+  grunt.registerTask('validate-js', ['jshint']);
+  grunt.registerTask('server-dist', ['connect:dist']);
+  
+  grunt.registerTask('publish', ['compile-jade', 'compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);
+
+
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -379,6 +453,9 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'compile-jade', 
+    'compile-sass', 
+    // 'validate-js', 
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -392,12 +469,13 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
   ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build',
+    ['compile-jade', 'compile-sass', 'bower-install', 'connect:app', 'watch']
   ]);
 };
