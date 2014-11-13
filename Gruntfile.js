@@ -41,23 +41,23 @@ module.exports = function (grunt) {
       }
     },
 
-    jade: {
-      compile: {
-        options: {
-          pretty: true,
-          data: {
-            debug: false
-          }
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= app %>/',
-          src: ['**/*.jade', '!**/header.jade', '!**/footer.jade'],
-          ext: '.html',
-          dest: '<%= app %>/'
-        }]
-      }
-    },
+    // jade: {
+    //   compile: {
+    //     options: {
+    //       pretty: true,
+    //       data: {
+    //         debug: true
+    //       }
+    //     },
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/',
+    //       src: ['**/*.jade', '!**/header.jade', '!**/footer.jade'],
+    //       ext: '.html',
+    //       dest: '<%= yeoman.app %>/'
+    //     }]
+    //   }
+    // },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -80,10 +80,10 @@ module.exports = function (grunt) {
         files: '<%= yeoman.app %>/scss/**/*.scss',
         tasks: ['sass']
       },
-      jade: {
-        files: '<%= yeoman.app %>/**/*.jade',
-        tasks: ['jade']
-      },
+      // jade: {
+      //   files: '<%= yeoman.app %>/**/*.jade',
+      //   tasks: ['jade']
+      // },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
@@ -180,17 +180,6 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/{,*/}*',
             '!<%= yeoman.dist %>/.git{,*/}*'
           ]
-        } , {
-          expand: true,
-          cwd:'<%= yeoman.app %>/',
-          src: ['fonts/**', '**/*.html', '!**/*.scss', '!bower_components/**'],
-          dest: '<%= yeoman.dist %>/'
-        } , {
-          expand: true,
-          flatten: true,
-          src: ['/bower_components/font-awesome/fonts/**'],
-          dest: '<%= yeoman.dist %>/fonts/',
-          filter: 'isFile'
         }]
       },
       server: '.tmp'
@@ -214,13 +203,10 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
-        src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
-      },
-      target: {
         src: [
-          '<%= yeoman.app %>/**/*.jade'
+          '<%= yeoman.app %>/index.html'
         ],
+        ignorePath:  /\.\.\//,
         exclude: [
           'modernizr',
           'font-awesome',
@@ -413,15 +399,15 @@ module.exports = function (grunt) {
   });
 
 
-  grunt.registerTask('compile-jade', ['jade']);
+  // grunt.registerTask('compile-jade', ['jade']);
   grunt.registerTask('compile-sass', ['sass']);
   grunt.registerTask('bower-install', ['wiredep']);
   
-  grunt.registerTask('default', ['compile-jade', 'compile-sass', 'bower-install', 'connect:app', 'watch']);
+  grunt.registerTask('default', ['compile-sass', 'bower-install', 'connect:app', 'watch']);
   grunt.registerTask('validate-js', ['jshint']);
-  grunt.registerTask('server-dist', ['connect:dist']);
+  // grunt.registerTask('server-dist', ['connect:dist']);
   
-  grunt.registerTask('publish', ['compile-jade', 'compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);
+  // grunt.registerTask('publish', ['compile-jade', 'compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -453,9 +439,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'compile-jade', 
-    'compile-sass', 
-    // 'validate-js', 
+    'compile-sass',
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -469,13 +453,12 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build',
-    ['compile-jade', 'compile-sass', 'bower-install', 'connect:app', 'watch']
+    'build'
   ]);
 };
