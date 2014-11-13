@@ -2,7 +2,7 @@
 
 By Dan Bulger, Derek Schultz, Theo Pak, and Trevor Phillippi for the Facebook Global Hackathin Finals 2014.
 
-![screenshot](screenshots/local-1024x768-index.png)
+![screenshot](screenshots/local-1440x1024-index.png)
 
 ## Contributing
 

@@ -43,7 +43,7 @@ module.exports = function (grunt) {
               { src: 'index.html', dest: 'index.png', delay: 500 }
             ]
           },
-          viewport: ['1024x768'] 
+          viewport: ['1440x1024'] 
         },
       },
     },
