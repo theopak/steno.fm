@@ -22,24 +22,28 @@
     <div class="contain-to-grid fixed" id="header" ng-hide="hideChrome">
       <nav class="top-bar" data-topbar>
         <div ng-controller="SearchCtrl">
-          <form class="search-box">
-            <div class="row collapse">
-              <div class="small-10 columns">
-                <input 
-                  type="text" class="form-control"
-                  placeholder="Search podcasts&hellip;" 
-                  ng-model="selected" 
-                  typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
-                  typeahead-loading="isLoading" 
-                  typeahead-min-length="2"
-                  />
-                <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
-              </div>
-              <div class="small-2 columns">
-                <a href="#" class="button postfix">Go</a>
-              </div>
+          <div class="row">
+            <div class="small-12 columns">
+              <form class="search-box">
+                <div class="row collapse">
+                  <div class="small-10 columns">
+                    <input 
+                      type="text" class="form-control"
+                      placeholder="Search podcasts&hellip;" 
+                      ng-model="selected" 
+                      typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+                      typeahead-loading="isLoading" 
+                      typeahead-min-length="2"
+                      />
+                    <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
+                  </div>
+                  <div class="small-2 columns">
+                    <a href="#" class="button postfix">Go</a>
+                  </div>
+                </div>
+              <form>
             </div>
-          <form>
+          </div>
         </div>
       </nav>
     </div>
