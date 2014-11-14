@@ -7,7 +7,7 @@
           <h4 class="brand subheader">search podcasts by text and speaker</h2>
         </div>
         <div class="row collapse search-box" ng-controller="SearchCtrl">
-          <div class="small-10 columns">
+          <div class="small-12 columns">
             <input 
               type="text" class="form-control"
               placeholder="Search podcasts&hellip;" 
@@ -15,9 +15,7 @@
               ng-keydown="skipToResultsView(query)"
               />
             <span ng-show="isLoading" class="fa fa-refresh fa-spin"></span>
-        </div>
-        <div class="small-2 columns">
-          <a href="#" class="button form-control postfix">Go</a>
+          </div>
         </div>
       </div>
     </div>
