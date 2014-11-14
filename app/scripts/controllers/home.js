@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name stenoApp.controller:MainCtrl
+ * @name stenoApp.controller:HomeCtrl
  * @description
- * # MainCtrl
- * Controller of the stenoApp
+ * # HomeCtrl
+ * Controller for everything on the `home` view, except for the search box which uses the common `SearchCtrl` controller.
  */
-app.controller('MainCtrl', function ($scope, $http) {
+app.controller('HomeCtrl', function ($scope, $http) {
   
+  $scope.hideChrome = true;     // true if the top-bar and footer should be hidden
   $scope.selected = undefined;	// model (angular expression) assigned to
   $scope.isLoading = false;			// true if the typeahead is asyncronously loading results
   // Any function returning a promise object can be used to load values asynchronously

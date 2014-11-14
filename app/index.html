@@ -19,14 +19,77 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="top-bar" data-topbar>
+    <!--
+    <nav class="top-bar">
+      <div ng-controller="SearchCtrl">
+        <form>
+          <div class="row collapse">
+            <div class="small-10 columns">
+              <input 
+                type="text" class="form-control"
+                placeholder="Search podcasts&hellip;" 
+                ng-model="selected" 
+                typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+                typeahead-loading="isLoading" 
+                typeahead-min-length="2"
+                />
+              <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
+            </div>
+            <div class="small-2 columns">
+              <a href="#" class="button postfix">Go</a>
+            </div>
+          </div>
+        <form>
+      </div>
       <ul class="title-area">
         <li class="name">
           <h1><a href="#">Steno (working title)</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+        <li class="has-form" ng-controller="SearchCtrl">
+            <form>
+              <div class="row collapse">
+                <div class="small-10 columns">
+                  <input 
+                    type="text" class="form-control"
+                    placeholder="Search podcasts&hellip;" 
+                    ng-model="selected" 
+                    typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+                    typeahead-loading="isLoading" 
+                    typeahead-min-length="2"
+                    />
+                  <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
+                </div>
+                <div class="small-2 columns">
+                  <a href="#" class="button postfix">Go</a>
+                </div>
+              </div>
+            <form>
+          </li>
       </ul>
       <section class="top-bar-section">
+        <ul class="left">
+          <li class="has-form" ng-controller="SearchCtrl">
+            <form>
+              <div class="row collapse">
+                <div class="small-10 columns">
+                  <input 
+                    type="text" class="form-control"
+                    placeholder="Search podcasts&hellip;" 
+                    ng-model="selected" 
+                    typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+                    typeahead-loading="isLoading" 
+                    typeahead-min-length="2"
+                    />
+                  <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
+                </div>
+                <div class="small-2 columns">
+                  <a href="#" class="button postfix">Go</a>
+                </div>
+              </div>
+            <form>
+          </li>
+        </ul>
         <ul class="right">
           <li class="divider"></li>
           <li><a href="/#">Main</a></li>
@@ -34,13 +97,14 @@
         </ul>
       </section>
     </nav>
+    -->
      
-    <div ng-view=""></div>
+    <div ng-view></div>
     
     <footer class="row">
       <div class="large-12 columns">
         <hr/>
-        <p>Steno was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>.</p>
+        <p>Steno was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>. Views: <a href="/#">Home</a>, <a href="/#results/">Results</a>, <a href="/#/about">About</a>.</p>
         </div>
       </div>
     </footer>
@@ -74,7 +138,9 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/controllers/results.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <!-- endbuild -->
 </body>

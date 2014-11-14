@@ -1,0 +1,55 @@
+<div class="contain-to-grid fixed" id="header">
+  <nav class="top-bar" data-topbar>
+    <div ng-controller="SearchCtrl">
+      <form class="search-box">
+        <div class="row collapse">
+          <div class="small-10 columns">
+            <input 
+              type="text" class="form-control"
+              placeholder="Search podcasts&hellip;" 
+              ng-model="selected" 
+              typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+              typeahead-loading="isLoading" 
+              typeahead-min-length="2"
+              />
+            <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
+          </div>
+          <div class="small-2 columns">
+            <a href="#" class="button postfix">Go</a>
+          </div>
+        </div>
+      <form>
+    </div>
+  </nav>
+</div>
+
+<div id="home">
+  <div class="row">
+    <div class="large-6 large-offset-3 small-8 small-offset-2 columns">
+      <div class="hero">
+        <div class="row">
+          <h2 class="brand">Steno</h1>
+          <h4 class="brand subheader">search podcasts by text and speaker</h2>
+        </div>
+        <form>
+          <div class="row collapse" ng-controller="SearchCtrl">
+            <div class="small-10 columns">
+              <input 
+                type="text" class="form-control"
+                placeholder="Search podcasts&hellip;" 
+                ng-model="selected" 
+                typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+                typeahead-loading="isLoading" 
+                typeahead-min-length="2"
+                typeahead-template-url="customTemplate.html"
+                />
+              <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
+          </div>
+          <div class="small-2 columns">
+            <a href="#" class="button postfix">Go</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
