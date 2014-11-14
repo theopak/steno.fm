@@ -1,4 +1,4 @@
-# Steno (Working Title)
+# [Steno](http://steno.fm)
 
 By Dan Bulger, Derek Schultz, Theo Pak, and Trevor Phillippi for the Facebook Global Hackathin Finals 2014.
 
