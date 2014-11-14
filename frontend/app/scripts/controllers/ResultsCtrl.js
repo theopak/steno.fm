@@ -16,9 +16,6 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     input: ''
   };
 
-  // Focus keyboard input in the search field
-  $scope.keypress = function() {
-    document.getElementById('query').focus();
   };
 
   // // Accept raw query input from the search field

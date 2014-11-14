@@ -8,7 +8,10 @@
  * Controller that's common on every page.
  */
 app.controller('MainCtrl', ['$scope', function ($scope) {
-  // $scope.keypress = function(keyEvent) {
-  //   document.getElementById('query').focus();
-  // };
+
+  // Focus on search box for all keypresses on any page.
+  $scope.keypress = function(keyEvent) {
+    document.getElementById('query').focus();
+  };
+  
 }]);
