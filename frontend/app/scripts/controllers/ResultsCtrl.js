@@ -67,7 +67,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
           speaker: 'Unknown Speaker',
           desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before they sold out High Life. Umami sriracha.'
         });
-        _.each($source.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
+        underscore.each($source.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
       });
 
       console.log($scope.res);
@@ -77,34 +77,34 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     });
 
     // Demo
-    $scope.res = 
-    {
-      {'Accidental Tech Podcast': [
-        '99 Always on Vacation in California': {
-          podcastTitle: 'Accidental Tech Podcast',
-          episodeTitle: '99 Always on Vacation in California',
-          startTime: '99:01'
-          speaker: 'Sirracha',
-          desc: 'saucy iOS'
-        },
-        '96 Always on Vacation in California': {
-          podcastTitle: 'Accidental Tech Podcast',
-          episodeTitle: '96 Always on Vacation in California',
-          startTime: '99:06'
-          speaker: 'Sirracha',
-          desc: 'saucy iOS'
-        },
-        '92 Always on Vacation in California': {
-          podcastTitle: 'Accidental Tech Podcast',
-          episodeTitle: '92 Always on Vacation in California',
-          startTime: '99:02'
-          speaker: 'Sirracha',
-          desc: 'saucy iOS'
-        }
-      ]},
-      {'Design Matters': [
-      ]}
-    };
+    // $scope.res = 
+    // {
+    //   {'Accidental Tech Podcast': [
+    //     '99 Always on Vacation in California': {
+    //       podcastTitle: 'Accidental Tech Podcast',
+    //       episodeTitle: '99 Always on Vacation in California',
+    //       startTime: '99:01'
+    //       speaker: 'Sirracha',
+    //       desc: 'saucy iOS'
+    //     },
+    //     '96 Always on Vacation in California': {
+    //       podcastTitle: 'Accidental Tech Podcast',
+    //       episodeTitle: '96 Always on Vacation in California',
+    //       startTime: '99:06'
+    //       speaker: 'Sirracha',
+    //       desc: 'saucy iOS'
+    //     },
+    //     '92 Always on Vacation in California': {
+    //       podcastTitle: 'Accidental Tech Podcast',
+    //       episodeTitle: '92 Always on Vacation in California',
+    //       startTime: '99:02'
+    //       speaker: 'Sirracha',
+    //       desc: 'saucy iOS'
+    //     }
+    //   ]},
+    //   {'Design Matters': [
+    //   ]}
+    // };
 
   };
 
