@@ -11,7 +11,8 @@
 var app = angular
   .module('stenoApp', [
     'ngAnimate',
-    'ngRoute'
+    'ngRoute',
+    'mm.foundation'
   ])
   .config(function ($routeProvider) {
     $routeProvider
