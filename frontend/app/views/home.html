@@ -1,24 +1,22 @@
-<div id="home">
-  <div class="row">
-    <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
-      <div class="hero">
-        <div class="row">
-          <h1 class="brand">Steno<span class="domain">.fm</span></h1>
-          <h2 class="brand tagline">search podcasts by text and speaker</h2>
-        </div>
-        <div class="row collapse search-box" ng-controller="SearchCtrl">
-          <form ng-submit="submitQueryInput()">
-            <div class="small-12 columns">
-              <input 
-                type="text" class="form-control"
-                placeholder="Search podcasts&hellip;" 
-                ng-model="query.input"
-                />
-              <span ng-show="isLoading" class="fa fa-refresh fa-spin"></span>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="home" class="home">
+	<div class="home-intro-wrapper">
+		<div class="identity home-intro">
+			<h1 class="identity-name">Steno<span class="domain">.fm</span></h1>
+			<h2 class="identity-tagline">The search engine for podcasts.</h2>
+		</div>
+		<div class="internal">
+			<div class="search-box" ng-controller="SearchCtrl">
+				<form ng-submit="submitQueryInput()">
+					<div class="small-12 columns">
+						<input 
+							type="text" class="form-control"
+							placeholder="Search podcasts&hellip;" 
+							ng-model="query.input"
+							/>
+						<span ng-show="isLoading" class="fa fa-refresh fa-spin"></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
