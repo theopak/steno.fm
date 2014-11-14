@@ -7,7 +7,8 @@
  * # ResultsCtrl
  * Controller for the `results` view.
  */
-app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', 'ResultsService', 'GlobalService', function ($scope, $http, $routeParams, ResultsService, GlobalService) {
+app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', 'ResultsService', 'GlobalService', 
+  function ($scope, $http, $routeParams, $location, ResultsService, GlobalService) {
   
   // Show the header and footer for this view.
   GlobalService.showChrome();
@@ -16,7 +17,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', 'ResultsServic
   };
 
   // Focus keyboard input in the search field
-  $scope.keypress = function(keyEvent) {
+  $scope.keypress = function() {
     document.getElementById('query').focus();
   };
 
@@ -26,22 +27,37 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', 'ResultsServic
   //   // $scope.query = q;
   // });
 
-  // Get the query
-  var input = $routeParams.queryInput;
-  // GlobalService.submitQuery(input);
-
   // Search directly on elasticsearch LOL
-  $scope.query.input = input;
-  $scope.getResults = function() {
+  var getResults = function() {
     console.log('ResultsCtrl $scope.getResults() called.');
     ResultsService.search({
-      q: input
+      index: 'episodes',
+      body: {
+        query: {
+          match: {
+            // _all: $scope.query.input
+            _all: 'Accidental'
+          }
+        }
+      }
     }).then(function (body) {
+      console.log('ResultsCtrl $scope.getResults() success: body: ', body);
       var hits = body.hits.hits;
       $scope.results = hits;
     }, function (error) {
       console.trace(error.message);
     });
-  }
+  };
+
+  // Get results upon page load
+  $scope.query.input = $routeParams.queryInput;
+  getResults();
+
+  // Go to a new page for a new search.
+  $scope.submitQueryInput = function() {
+    console.log('ResultsCtrl $scope.submitQueryInput() called');
+    $location.path('/search/' + $scope.query.input);
+    $scope.getResults();
+  };
 
 }]);

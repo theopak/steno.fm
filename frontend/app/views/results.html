@@ -1,7 +1,7 @@
 <div class="contain-to-grid fixed" id="header" ng-hide="GlobalService.isHiddenChrome()">
   <nav class="top-bar" data-topbar>
     <div class="search-box" ng-controller="SearchCtrl">
-      <form ng-submit="getResults()">
+      <form ng-submit="submitQueryInput()">
         <div class="row">
           <div class="small-12 columns">
             <input 
@@ -10,7 +10,7 @@
               placeholder="Search podcasts&hellip;"
               ng-model="query.input"
             />
-            <span ng-hide="isLoading" class="indicator fa fa-refresh fa-spin"></span>
+            <span ng-show="isLoading" class="indicator fa fa-refresh fa-spin"></span>
           </div>
         </div>
       </form>
@@ -24,6 +24,15 @@
     {{ query.input }} -- {{ results }}
   </div>
   <div class="large-12 columns">
+    <div class="card" ng-repeat>
+      <img class="cover" src="http://placehold.it/96x96.png" />
+      <h1>Speaker Name</h1>
+      <div class="meta">
+        <span class="episode">Episode 101</span>
+        <span class="podcast">{{ podcast_title }}</span>
+        <span class="date">Nov 12, 2014</span>
+      </div>
+    </div>
     <div class="card">
       <img class="cover" src="http://placehold.it/96x96.png" />
       <h1>Trevor Phillippi</h1>
