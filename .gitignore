@@ -7,5 +7,5 @@ bower_components
 *.sublime-project
 *.sublime-workspace
 
-app/styles/*.css
+frontend/app/styles/*.css
 *.map
