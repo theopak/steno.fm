@@ -22,7 +22,10 @@
 <div id="results">
   <div class="row">
     <div class="large-12 columns">
-      {{ query }} <br/><hr/> {{ results }}
+      <code>{{ query }}</code>
+      <br/><hr/>
+      <code>{{ results }}</code>
+      <br/><hr/>
     </div>
     <div class="large-12 columns">
       <div class="card" ng-repeat="result in results | orderBy: result._score">
@@ -30,8 +33,7 @@
         <img class="cover" src="http://placehold.it/96x96.png" />
         <h1>Speaker Name</h1>
         <div class="meta">
-          <span class="episode">Episode {{ result._source.podcast_title }}</span>
-          <span class="podcast">{{ result._source.podcast_title }}</span>
+          <span class="episode">{{ result._id }}</span>
           <span class="date">Nov 12, 2014</span>
         </div>
       </div>

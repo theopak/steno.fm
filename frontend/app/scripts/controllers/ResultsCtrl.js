@@ -47,8 +47,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
       body: {
         query: {
           match: {
-            // _all: $scope.query.input
-            _all: 'Accidental'
+            _all: $scope.query.input
           }
         }
       }
