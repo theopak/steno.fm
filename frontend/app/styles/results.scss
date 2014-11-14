@@ -62,6 +62,7 @@ $color1: rgb(246, 219, 168);
 
 .results {
   .results-podcast {
+    transition: all 500ms ease-in;
     .results-podcast-heading-artwork {
       width: 8%;
       float: left;
@@ -73,6 +74,15 @@ $color1: rgb(246, 219, 168);
     }
     .results-podcast-heading {
       @include clearfix();
+    }
+    &.ng-enter {
+      transform: translateY(15%);
+      opacity: 0.5;
+      overflow: hidden;
+    }
+    &.ng-enter-active {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 

@@ -93,6 +93,8 @@ a {
     line-height: 1.2em;
     // vertical-align: baseline;
   }
+  transition: all 100ms ease-in-out;
+  transition-delay: 250ms;
 }
 #query {
 }
