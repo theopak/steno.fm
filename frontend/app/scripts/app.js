@@ -20,7 +20,7 @@ var app = angular
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
-      .when('/results', {
+      .when('/search', {
         templateUrl: 'views/results.html',
         controller: 'ResultsCtrl'
       })
