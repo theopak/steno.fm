@@ -1,5 +1,8 @@
 <div class="results-header contain-to-grid fixed" id="header" ng-hide="GlobalService.isHiddenChrome()">
   <nav class="top-bar" data-topbar>
+    <div class="identity home-intro">
+        <h1 class="identity-name">Steno<span class="domain">.fm</span></h1>
+      </div>
     <div class="search-box" ng-controller="SearchCtrl">
       <form ng-submit="submitQueryInput()">
         <div class="row">
@@ -30,7 +33,7 @@
       </div>
     </div>
     <div class="large-12 columns">
-
+      
       <div class="results-podcast" ng-repeat="podcast in res">
         <h1>{{ podcast[0][0].podcastTitle }}</h1>
         <div class="results-episode" ng-repeat="episode in podcast">

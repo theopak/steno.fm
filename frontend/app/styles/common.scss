@@ -34,10 +34,20 @@ a {
     background: transparent;
   }
   .search-box {
+    width: 60%;
+    float: left;
     margin-top: 10px;
     margin-bottom: 24px;
     input {
-      height: 60px;
+      height: 50px;
+    }
+  }
+  .identity {
+    margin-top: 20px;
+    width: 16%;
+    float: left;
+    .identity-name {
+      font-size: 2rem;
     }
   }
   .indicator {
