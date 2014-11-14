@@ -27,7 +27,7 @@
 
       <div class="results-episode" ng-repeat="result in results">
         {{ result }}
-        <h1 class="results-episode-title">{{ result._source.podcast_title }}</h1>
+        <h1 class="results-episode-title">{{ result._source.cluster_episode }}</h1>
         <div class="results-episode-content">
         <!-- <div class="results-episode-content-count"></div> -->
         <div class="results-episode-occurences">
@@ -35,7 +35,7 @@
             <div class="episode-occurence-name">John Siracusa</div>
             <div class="episode-occurence-context">Hella narwhal Cosby sweater McSweeney's, salvia <span="episode-occurence-term">Facebook</span> before lthey sold out High Life. Umami sriracha.</div>
             <div class="episode-occurence-time">
-              said at 33:01
+              said at <span>{{result._source.start_time}}</span>
             </div>
             <div class="episode-occurence-actions">
               <a href="#" class="play-episode">Play</a>
