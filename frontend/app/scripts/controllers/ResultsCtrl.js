@@ -38,16 +38,27 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     $scope.query.title = extractFromQuery('podcast') || extractFromQuery('title');
     console.log('ResultsCtrl.parseQuery done on $scope.query:', $scope.query);
   };
-$scope.trustSrc = function(src) {
+
+  $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
-  }
+  };
 
   // Search directly on elasticsearch LOL
   var getResults = function() {
     console.log('ResultsCtrl $scope.getResults() called.');
     ResultsService.search({
       index: 'segments',
-      text: $scope.query.input
+      // text: $scope.query.input
+      body: {
+        query: {
+          match: {
+            text: $scope.query.input
+            // cluster_episode: $scope.query.title
+            // podcast_title: $scope.query.title
+            // 'source.podcast_title': 'Accidental'
+          }
+        }
+      }
     }).then(function (body) {
       console.log('ResultsCtrl $scope.getResults() success: body: ', body);
       var hits = body.hits.hits;
