@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       scrot_index: {
         options: {
           // necessary config
-          path: 'screenshots/',
+          path: '../screenshots/',
           remote: {
             files: [{}]  // this line overrides the default, which is google.com
           },
