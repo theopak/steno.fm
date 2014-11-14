@@ -23,32 +23,24 @@
   </nav>
 </div>
 
-<div id="home">
+<div id="results">
   <div class="row">
-    <div class="large-6 large-offset-3 small-8 small-offset-2 columns">
-      <div class="hero">
-        <div class="row">
-          <h2 class="brand">Steno</h1>
-          <h4 class="brand subheader">search podcasts by text and speaker</h2>
-        </div>
-        <form>
-          <div class="row collapse" ng-controller="SearchCtrl">
-            <div class="small-10 columns">
-              <input 
-                type="text" class="form-control"
-                placeholder="Search podcasts&hellip;" 
-                ng-model="selected" 
-                typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
-                typeahead-loading="isLoading" 
-                typeahead-min-length="2"
-                typeahead-template-url="customTemplate.html"
-                />
-              <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
-          </div>
-          <div class="small-2 columns">
-            <a href="#" class="button postfix">Go</a>
-          </div>
-        </form>
+    <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+    <div class="large-10 columns">
+      <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+      <ul class="inline-list">
+        <li><a href="">Reply</a></li>
+        <li><a href="">Share</a></li>
+      </ul>
+
+      <h6>2 Comments</h6>
+      <div class="row">
+        <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
+        <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
+      </div>
+      <div class="row">
+        <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
+        <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
       </div>
     </div>
   </div>
