@@ -9,8 +9,9 @@
  */
 app.controller('SearchCtrl', function ($scope, $http) {
   
-  $scope.selected = undefined;	// model (angular expression) assigned to
-  $scope.isLoading = false;			// true if the typeahead is asyncronously loading results
+  
+  $scope.selected = undefined;  // model (angular expression) assigned to
+  $scope.isLoading = false;     // true if the typeahead is asyncronously loading results
   // Any function returning a promise object can be used to load values asynchronously
   $scope.getLocation = function(val) {
     return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
