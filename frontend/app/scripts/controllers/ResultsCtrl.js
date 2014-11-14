@@ -7,8 +7,8 @@
  * # ResultsCtrl
  * Controller for the `results` view.
  */
-app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', 'ResultsService', 'GlobalService', 'underscore',
-  function ($scope, $http, $routeParams, $location, ResultsService, GlobalService, underscore) {
+app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', 'ResultsService', 'GlobalService', 'underscore', '$sce',
+  function ($scope, $http, $routeParams, $location, ResultsService, GlobalService, underscore, $sce) {
   
   // Show the header and footer for this view.
   GlobalService.showChrome();
@@ -38,6 +38,9 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     $scope.query.title = extractFromQuery('podcast') || extractFromQuery('title');
     console.log('ResultsCtrl.parseQuery done on $scope.query:', $scope.query);
   };
+$scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src);
+  }
 
   // Search directly on elasticsearch LOL
   var getResults = function() {

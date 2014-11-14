@@ -50,13 +50,13 @@
                             <div class="results-episode-occurence episode-occurence" ng-repeat="occurance in episode">
                                 <div class="episode-occurence-name">{{ occurance.speaker }}</div>
                                 <div class="episode-occurence-context">{{ occurance.desc }}</div>
+                                <audio audiothing timestart="occurance.startTime" src="{{trustSrc(occurance.remoteUrl)}}" preload="auto" controls></audio>
                                 <div class="episode-occurence-time">said at <span>{{ occurance.startTime }}</span></div>
-                                <audio audiothing timestart="occurance.startTime" src="occurance.remoteUrl" preload="auto" controls></audio>
+                                <!-- <div class="episode-occurence-actions">
+                                    <a href="#" class="play-episode">Play</a>
+                                    <a href="#" class="share-episode">Share</a>
+                                </div> -->
                             </div>
-                        <div class="episode-occurence-actions">
-                            <a href="#" class="play-episode">Play</a>
-                            <a href="#" class="share-episode">Share</a>
-                        </div>
                     </div>
                 </div>
                 <div class="results-episode-actions">
