@@ -59,3 +59,68 @@ $color1: rgb(246, 219, 168);
     background-color: $color1;
   }
 }
+
+.results {
+  .results-podcast {
+    .results-podcast-heading-artwork {
+      width: 8%;
+      float: left;
+    }
+    .results-podcast-heading-title {
+      font-size: 2rem;
+      line-height: 60px;
+      color: #fefefe;
+    }
+    .results-podcast-heading {
+      @include clearfix();
+    }
+  }
+
+  .results-episode {
+    margin-left: 8%;
+    .results-episode-title {
+      margin-bottom: 0;
+      padding: 20px 30px;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #fff;
+      background-color: $spot-color;
+    }
+    .results-episode-content {
+      padding: 30px;
+      background-color: #fff;
+    }
+  }
+}
+
+.episode-occurence {
+  @include clearfix();
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  .episode-occurence-name {
+    color: $spot-color;
+    font-family: $display-font-stack;
+    font-weight: 700;
+    // text-transform: uppercase;
+  }
+  .episode-occurence-context {
+    font-family: $body-font-stack;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .episode-occurence-time {
+    float: left;
+    color: #999;
+    font-weight: 300;
+  }
+  .episode-occurence-actions {
+    float: right;
+    font-family: $display-font-stack;
+    text-transform: uppercase;
+  }
+}
+
+.test-wrapper {
+  background: black;
+}

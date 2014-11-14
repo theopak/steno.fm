@@ -10,3 +10,16 @@ $grey-green: #B9C0BF;
 
 $spot-color: $st-green;
 
+
+
+%clearfix {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+@mixin clearfix() {
+	&:after {
+		@extend %clearfix;
+	}
+}
