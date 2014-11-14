@@ -54,7 +54,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
       underscore.each(hits, function(value){
         console.log(value);
         var podcast = 'Podcast Title Placeholder';
-        if(!(podcast in $scope.res) {
+        if(!(podcast in $scope.res)) {
             $scope.res[podcast] = {};
         }
         if(!(value._source.cluster_episode in $scope.res[podcast])) {
