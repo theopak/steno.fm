@@ -9,6 +9,7 @@ h1, h2, h3, h4 {
 }
 body {
   font-family: $body-font-stack;
+  background-color: #010101;
 }
 a {
   color: $spot-color;
@@ -33,9 +34,11 @@ a {
     background: transparent;
   }
   .search-box {
-    position: relative;
-    padding-top: 3rem;
-    padding-bottom: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 24px;
+    input {
+      height: 60px;
+    }
   }
   .indicator {
     position: absolute;
