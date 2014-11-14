@@ -14,7 +14,7 @@ app.controller('MainCtrl', ['$scope', function ($scope) {
     if(keyEvent.which === 27){
       // 27 ESC
       console.log('MainCtrl detected [ESC] keypress.', keyEvent);
-      jQuery('#debug').slideToggle();
+      $('#debug').slideToggle();
     } else {
       document.getElementById('query').focus();
     }
