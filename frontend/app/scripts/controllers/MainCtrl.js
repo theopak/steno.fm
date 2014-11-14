@@ -7,6 +7,6 @@
  * # MainCtrl
  * Controller that's common on every page.
  */
-app.controller('MainCtrl', function ($scope) {
-
-});
+app.controller('MainCtrl', ['$scope', 'GlobalUi', function ($scope, GlobalUi) {
+	$scope.GlobalUi = GlobalUi;
+}]);

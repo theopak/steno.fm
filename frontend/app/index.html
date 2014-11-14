@@ -19,7 +19,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="contain-to-grid fixed" id="header" ng-hide="hideChrome">
+    <div class="contain-to-grid fixed" id="header" ng-hide="GlobalUi.isHiddenChrome()">
       <nav class="top-bar" data-topbar>
         <div ng-controller="SearchCtrl">
           <div class="row">
@@ -50,7 +50,7 @@
      
     <div ng-view></div>
     
-    <footer class="row" ng-hide="hideChrome">
+    <footer class="row" ng-hide="hideChrome()">
       <div class="large-12 columns">
         <hr/>
         <p>Steno.fm was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>. Views: <a href="/#">Home</a>, <a href="/#results/">Results</a>, <a href="/#/about">About</a>.</p>
@@ -87,7 +87,7 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/GlobalService.js"></script>
+    <script src="scripts/services/GlobalUIService.js"></script>
     <script src="scripts/controllers/MainCtrl.js"></script>
     <script src="scripts/controllers/HomeCtrl.js"></script>
     <script src="scripts/controllers/SearchCtrl.js"></script>
