@@ -11,7 +11,7 @@
             <input 
               type="text" class="form-control"
               placeholder="Search podcasts&hellip;" 
-              ng-model="query" 
+              ng-model="query.input" 
               ng-keydown="skipToResultsView(query)"
               />
             <span ng-show="isLoading" class="fa fa-refresh fa-spin"></span>

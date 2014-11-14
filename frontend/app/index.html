@@ -28,7 +28,7 @@
                 type="text" 
                 id="query" class="form-control"
                 placeholder="Search podcasts&hellip;" 
-                ng-model="query" 
+                ng-model="query.input" 
                 typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
                 typeahead-loading="isLoading" 
                 typeahead-min-length="2"

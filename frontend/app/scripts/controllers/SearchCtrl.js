@@ -9,8 +9,7 @@
  */
 app.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
   
-  
-  $scope.query = undefined;     // model (angular expression) that selected/field content is assigned to
+  $scope.query = $scope.GlobalUi.query;
   $scope.isLoading = false;     // true if the typeahead is asyncronously loading results
 
   // Any function returning a promise object can be used to load values asynchronously
