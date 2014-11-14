@@ -21,9 +21,14 @@
 <div id="results">
 
   <div class="row">
-    <!-- <div class="large-12 columns">
-      {{ query.input }} -- {{ results }}
-    </div> -->
+    <div class="large-12 columns" id="debug" style="display: none;">
+      <div class="alert-box secondary">
+        {{ query }}
+      </div>
+      <div class="alert-box secondary">
+        {{ results }}
+      </div>
+    </div>
     <div class="large-12 columns">
 
       <div class="results-episode" ng-repeat="result in res">

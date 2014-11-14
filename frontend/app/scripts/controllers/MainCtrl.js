@@ -9,9 +9,15 @@
  */
 app.controller('MainCtrl', ['$scope', function ($scope) {
 
-  // Focus on search box for all keypresses on any page.
+  // Focus on search box for all keypresses on any page, except special `keyEvent`s.
   $scope.keypress = function(keyEvent) {
-    document.getElementById('query').focus();
+    if(keyEvent.which === 27){
+      // 27 ESC
+      console.log('MainCtrl detected [ESC] keypress.', keyEvent);
+      jQuery('#debug').slideToggle();
+    } else {
+      document.getElementById('query').focus();
+    }
   };
-  
+
 }]);
