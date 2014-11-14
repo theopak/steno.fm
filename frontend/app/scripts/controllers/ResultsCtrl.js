@@ -41,9 +41,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
 $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
   }
-$scope.getArtwork = function(name) {
-  console.log(name)
-}
+
   // Search directly on elasticsearch LOL
   var getResults = function() {
     console.log('ResultsCtrl $scope.getResults() called.');
@@ -72,8 +70,7 @@ $scope.getArtwork = function(name) {
           mediaThumbnail: value._source.media_thumbnail.href || value._source.media_thumbnail.url,
           remoteUrl:      value._source.remote_url,
           speaker:        value._source.speaker,
-          desc:           value._source.text,
-          podcastArtwork: $scope.getArtwork(value._source.podcast_title)
+          desc:           value._source.text
         });
       });
 
