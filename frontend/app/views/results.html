@@ -1,5 +1,31 @@
+<div class="contain-to-grid fixed" id="header" ng-hide="GlobalService.isHiddenChrome()">
+  <nav class="top-bar" data-topbar>
+    <div class="search-box" ng-controller="SearchCtrl">
+      <form ng-submit="getResults()">
+        <div class="row">
+          <div class="small-12 columns">
+            <input 
+              type="text" 
+              id="query" class="form-control"
+              placeholder="Search podcasts&hellip;" 
+              ng-model="query.input" 
+              typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+              typeahead-loading="isLoading" 
+              typeahead-min-length="2"
+            />
+            <span ng-hide="isLoading" class="indicator fa fa-refresh fa-spin"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+</div>
+
 <div id="results">
   <div class="row">
+  <div class="large-12 columns">
+    {{ query.input }} -- {{ results }}
+  </div>
   <div class="large-12 columns">
     <div class="card">
       <img class="cover" src="http://placehold.it/96x96.png" />

@@ -7,9 +7,8 @@
  * # HomeCtrl
  * Controller for everything on the `home` view, except for the search box which uses the common `SearchCtrl` controller.
  */
-app.controller('HomeCtrl', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+app.controller('HomeCtrl', ['$scope', '$http', '$location', 'GlobalService', function ($scope, $http, $location, GlobalService) {
 
-  $scope.query = $scope.GlobalUi.query;
   $scope.isLoading = false;			// true if the typeahead is currently loading async results
 
   // Any function returning a promise object can be used to load values asynchronously
@@ -29,11 +28,11 @@ app.controller('HomeCtrl', ['$scope', '$http', '$location', function ($scope, $h
   };
 
   // Route to the results page as soon as any text is entered, skipping animations if necessary.
-  $scope.skipToResultsView = function(query) {
-    $location.path('/search');
+  $scope.submitQueryInput = function() {
+    $location.path('/search/' + $scope.query.input);
   };
 
   // Hide the header and footer for this view.
-  $scope.GlobalUi.hideChrome();
+  GlobalService.hideChrome();
 
 }]);

@@ -7,15 +7,16 @@
           <h4 class="brand subheader">search podcasts by text and speaker</h2>
         </div>
         <div class="row collapse search-box" ng-controller="SearchCtrl">
-          <div class="small-12 columns">
-            <input 
-              type="text" class="form-control"
-              placeholder="Search podcasts&hellip;" 
-              ng-model="query.input" 
-              ng-keydown="skipToResultsView(query)"
-              />
-            <span ng-show="isLoading" class="fa fa-refresh fa-spin"></span>
-          </div>
+          <form ng-submit="submitQueryInput()">
+            <div class="small-12 columns">
+              <input 
+                type="text" class="form-control"
+                placeholder="Search podcasts&hellip;" 
+                ng-model="query.input"
+                />
+              <span ng-show="isLoading" class="fa fa-refresh fa-spin"></span>
+            </div>
+          </form>
         </div>
       </div>
     </div>

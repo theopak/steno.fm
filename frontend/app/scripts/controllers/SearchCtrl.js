@@ -7,9 +7,8 @@
  * # SearchCtrl
  * Controller for the `search` view which appears in the topbar on every page.
  */
-app.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('SearchCtrl', ['$scope', '$http', '$location', 'GlobalService', function ($scope, $http, $location, GlobalService) {
   
-  $scope.query = $scope.GlobalUi.query;
   $scope.isLoading = false;     // true if the typeahead is asyncronously loading results
 
   // Any function returning a promise object can be used to load values asynchronously
@@ -26,6 +25,13 @@ app.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
       });
       return addresses;
     });
+  };
+
+  $scope.submitQueryInput = function() {
+    console.log('SearchCtrl $scope.submitQueryInput() called');
+    // GlobalService.submitQuery($scope.query);
+    // $scope.$broadcast('submitQueryInput', $scope.query);
+    $location.path('/search/' + $scope.query.input);
   };
 
 }]);

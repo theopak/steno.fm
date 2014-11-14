@@ -13,7 +13,7 @@ var app = angular
     'ngAnimate',
     'ngRoute',
     'mm.foundation',
-    'elasticui'
+    'elasticsearch'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -21,7 +21,7 @@ var app = angular
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
-      .when('/search', {
+      .when('/search/:queryInput', {
         templateUrl: 'views/results.html',
         controller: 'ResultsCtrl'
       })

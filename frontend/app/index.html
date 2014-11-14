@@ -18,34 +18,13 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div class="contain-to-grid fixed" id="header" ng-hide="GlobalUi.isHiddenChrome()">
-      <nav class="top-bar" data-topbar>
-        <div class="search-box" ng-controller="SearchCtrl">
-          <div class="row">
-            <div class="small-12 columns">
-              <input 
-                type="text" 
-                id="query" class="form-control"
-                placeholder="Search podcasts&hellip;" 
-                ng-model="query.input" 
-                typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
-                typeahead-loading="isLoading" 
-                typeahead-min-length="2"
-              />
-              <span ng-hide="isLoading" class="indicator fa fa-refresh fa-spin"></span>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
      
     <div ng-view></div>
     
-    <footer class="row" ng-hide="GlobalUi.isHiddenChrome()">
+    <footer class="row" ng-hide="GlobalService.isHiddenChrome()">
       <div class="large-12 columns">
-        <hr/>
-        <p>Steno.fm was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>. Views: <a href="/#">Home</a>, <a href="/#search/">Search Results</a>, <a href="/#/about">About</a>.</p>
+        <hr />
+        <p>Steno.fm was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>. Views: <a href="/#/">Home</a>, <a href="/#/search">Search Results</a>, <a href="/#/about">About</a>.</p>
         </div>
       </div>
     </footer>
@@ -76,13 +55,13 @@
     <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
     <script src="bower_components/elasticsearch/elasticsearch.js"></script>
     <script src="bower_components/elasticsearch/elasticsearch.angular.js"></script>
-    <script src="bower_components/ElasticUI/dist/elasticui.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/GlobalUIService.js"></script>
+    <script src="scripts/services/GlobalService.js"></script>
+    <script src="scripts/services/ResultsService.js"></script>
     <script src="scripts/controllers/MainCtrl.js"></script>
     <script src="scripts/controllers/HomeCtrl.js"></script>
     <script src="scripts/controllers/SearchCtrl.js"></script>

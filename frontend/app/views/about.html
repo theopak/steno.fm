@@ -2,12 +2,16 @@
   <div class="large-12 columns">
     <p>This is the about view.</p>
     <eui-searchbox field="'textField'"></eui-searchbox>
+    <input type="text" eui-query="ejs.MatchQuery('textField', querystring)" ng-model="querystring" eui-enabled="querystring.length" />
     <h1>Results</h1>
     <ul>
       <li ng-repeat="doc in indexVM.results.hits.hits">
         {{doc._source | json | limitTo: 500}} <!-- OPTIONAL: display more meaningful data instead of json -->
       </li>
     </ul>
-    <eui-simple-paging></eui-simple-paging>
+    <ul class="pager">
+      <li ng-class="{disabled:indexVM.page <= 1}"><a href="" ng-click="indexVM.page=indexVM.page - 1">Previous</a></li>
+      <li ng-class="{disabled:indexVM.pageCount <= indexVM.page}"><a href="" ng-click="indexVM.page=indexVM.page + 1">Next</a></li>
+    </ul>
   </div>
 </div>
