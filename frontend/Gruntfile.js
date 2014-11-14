@@ -51,7 +51,7 @@ module.exports = function (grunt) {
     sass: {
       options: {
         sourceMap: true,
-        includePaths: ['bower_components/foundation/scss/']
+        includePaths: ['bower_components/foundation/scss/', 'bower_components/font-awesome/scss/']
       },
       dist: {
         options: {
