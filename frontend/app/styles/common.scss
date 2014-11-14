@@ -7,7 +7,16 @@
 h1, h2, h3, h4 {
   font-family: $display-font-stack;
 }
-
+body {
+  font-family: $body-font-stack;
+}
+a {
+  color: $spot-color;
+  transition: 0.3s color;
+  &:hover {
+    color: darken($spot-color, 10%);
+  }
+}
 
 // layout base styles
 .internal {

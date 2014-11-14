@@ -1,7 +1,7 @@
-<div class="contain-to-grid fixed" id="header">
+<div class="contain-to-grid fixed" id="header" ng-hide="GlobalService.isHiddenChrome()">
   <nav class="top-bar" data-topbar>
     <div class="search-box" ng-controller="SearchCtrl">
-      <form ng-submit="submitInput()">
+      <form ng-submit="submitQueryInput()">
         <div class="row">
           <div class="small-12 columns">
             <input 
@@ -9,7 +9,6 @@
               id="query" class="form-control"
               placeholder="Search podcasts&hellip;"
               ng-model="query.input"
-              ng-keyup="parseQuery()"
             />
             <span ng-show="isLoading" class="indicator fa fa-refresh fa-spin"></span>
           </div>
@@ -21,22 +20,56 @@
 
 <div id="results">
   <div class="row">
+    <!-- <div class="large-12 columns">
+      {{ query.input }} -- {{ results }}
+    </div> -->
     <div class="large-12 columns">
-      <code>{{ query }}</code>
-      <br/><hr/>
-      <code>{{ results }}</code>
-      <br/><hr/>
-    </div>
-    <div class="large-12 columns">
-      <div class="card" ng-repeat="result in results | orderBy: result._score">
+
+      <div class="results-episode" ng-repeat="result in results">
         {{ result }}
-        <img class="cover" src="http://placehold.it/96x96.png" />
-        <h1>Speaker Name</h1>
-        <div class="meta">
-          <span class="episode">{{ result._id }}</span>
-          <span class="date">Nov 12, 2014</span>
+        <h1 class="results-episode-title">{{ result._source.cluster_episode }}</h1>
+        <div class="results-episode-content">
+        <!-- <div class="results-episode-content-count"></div> -->
+        <div class="results-episode-occurences">
+          <div class="results-episode-occurence episode-occurence">
+            <div class="episode-occurence-name">John Siracusa</div>
+            <div class="episode-occurence-context">Hella narwhal Cosby sweater McSweeney's, salvia <span="episode-occurence-term">Facebook</span> before lthey sold out High Life. Umami sriracha.</div>
+            <div class="episode-occurence-time">
+              said at <span>{{result._source.start_time}}</span>
+            </div>
+            <div class="episode-occurence-actions">
+              <a href="#" class="play-episode">Play</a>
+              <a href="#" class="share-episode">Share</a>
+            </div>
+          </div>
+          <div class="results-episode-occurence episode-occurence">
+            <div class="episode-occurence-name">John Gruber</div>
+            <div class="episode-occurence-context">Hella narwhal Cosby sweater McSweeney's, salvia <span="episode-occurence-term">Facebook</span> before lthey sold out High Life. Umami sriracha.</div>
+            <span class="episode-occurence-time">
+              said at 42:09
+            </span>
+            <div class="episode-occurence-actions">
+              <a href="#" class="play-episode">Play</a>
+              <a href="#" class="share-episode">Share</a>
+            </div>
+          </div>
+          <div class="results-episode-occurence episode-occurence">
+            <div class="episode-occurence-name">John Siracusa</div>
+            <div class="episode-occurence-context">Hella narwhal Cosby sweater McSweeney's, salvia <span="episode-occurence-term">Facebook</span> before lthey sold out High Life. Umami sriracha.</div>
+            <span class="episode-occurence-time">
+              said at 1:03:06
+            </span>
+            <div class="episode-occurence-actions">
+              <a href="#" class="play-episode">Play</a>
+              <a href="#" class="share-episode">Share</a>
+            </div>
+          </div>
         </div>
       </div>
+
+
+      </div>
+
       <div class="card">
         <img class="cover" src="http://placehold.it/96x96.png" />
         <h1>Trevor Phillippi</h1>
