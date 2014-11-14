@@ -7,8 +7,8 @@
  * # ResultsCtrl
  * Controller for the `results` view.
  */
-app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', 'ResultsService', 'GlobalService', 
-  function ($scope, $http, $routeParams, $location, ResultsService, GlobalService) {
+app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', 'ResultsService', 'GlobalService', 'underscore',
+  function ($scope, $http, $routeParams, $location, ResultsService, GlobalService, underscore) {
   
   // Show the header and footer for this view.
   GlobalService.showChrome();
@@ -48,6 +48,26 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     }).then(function (body) {
       console.log('ResultsCtrl $scope.getResults() success: body: ', body);
       var hits = body.hits.hits;
+      $scope.res = {};
+      underscore.each(hits, function(value){
+        console.log(value);
+        if(value._source.cluster_episode in $scope.res) {
+          $scope.res[value._source.cluster_episode].push({
+            episodeTitle: value._source.cluster_episode,
+            startTime: value._source.start_time,
+            speaker: 'Unknown Speaker',
+            desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before lthey sold out High Life. Umami sriracha.'
+          });
+        } else {
+          $scope.res[value._source.cluster_episode] = [{
+            episodeTitle: value._source.cluster_episode,
+            startTime: value._source.start_time,
+            speaker: 'Unknown Speaker',
+            desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before lthey sold out High Life. Umami sriracha.'
+          }];
+        }
+      });
+      // console.log($scope.res);
       $scope.results = hits;
     }, function (error) {
       console.trace(error.message);

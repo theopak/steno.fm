@@ -13,7 +13,8 @@ var app = angular
     'ngAnimate',
     'ngRoute',
     'mm.foundation',
-    'elasticsearch'
+    'elasticsearch',
+    'ngUnderscore'
   ])
   .config(function ($routeProvider) {
     $routeProvider
