@@ -48,26 +48,29 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     }).then(function (body) {
       console.log('ResultsCtrl $scope.getResults() success: body: ', body);
       var hits = body.hits.hits;
+
+      // Group each segment into episodes within podcasts held as dicts within `$scope.res`.
       $scope.res = {};
       underscore.each(hits, function(value){
         console.log(value);
-        if(value._source.cluster_episode in $scope.res) {
-          $scope.res[value._source.cluster_episode].push({
-            episodeTitle: value._source.cluster_episode,
-            startTime: value._source.start_time,
-            speaker: 'Unknown Speaker',
-            desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before lthey sold out High Life. Umami sriracha.'
-          });
-        } else {
-          $scope.res[value._source.cluster_episode] = [{
-            episodeTitle: value._source.cluster_episode,
-            startTime: value._source.start_time,
-            speaker: 'Unknown Speaker',
-            desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before lthey sold out High Life. Umami sriracha.'
-          }];
+        var podcast = 'Podcast Title Placeholder';
+        if(!(podcast in $scope.res) {
+            $scope.res[podcast] = {};
         }
+        if(!(value._source.cluster_episode in $scope.res[podcast])) {
+          $scope.res[podcast][value._source.cluster_episode] = [];
+        }
+        $scope.res[podcast][value._source.cluster_episode].push({
+          podcastTitle: podcast,
+          episodeTitle: value._source.cluster_episode,
+          startTime: value._source.start_time,
+          speaker: 'Unknown Speaker',
+          desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before they sold out High Life. Umami sriracha.'
+        });
+        _.each($source.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
       });
-      // console.log($scope.res);
+
+      console.log($scope.res);
       $scope.results = hits;
     }, function (error) {
       console.trace(error.message);

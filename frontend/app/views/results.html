@@ -31,20 +31,23 @@
     </div>
     <div class="large-12 columns">
 
-      <div class="results-episode" ng-repeat="result in res">
-        <h1 class="results-episode-title">{{ result[0].episodeTitle }}</h1>
-        <div class="results-episode-content">
-        <!-- <div class="results-episode-content-count"></div> -->
-        <div class="results-episode-occurences">
-          <div class="results-episode-occurence episode-occurence" ng-repeat="episode in result">
-            <div class="episode-occurence-name">{{ episode.speaker }}</div>
-            <div class="episode-occurence-context">Hella narwhal Cosby sweater McSweeney's, salvia <span="episode-occurence-term">Facebook</span> before lthey sold out High Life. Umami sriracha.</div>
-            <div class="episode-occurence-time">
-              said at <span>{{ episode.startTime }}</span>
-            </div>
-            <div class="episode-occurence-actions">
-              <a href="#" class="play-episode">Play</a>
-              <a href="#" class="share-episode">Share</a>
+      <div class="results-podcast" ng-repeat="podcast in res">
+        <h1>{{ podcast[0][0].podcastTitle }}</h1>
+        <div class="results-episode" ng-repeat="episode in podcast">
+          <h1 class="results-episode-title">{{ episode[0].episodeTitle }}</h1>
+          <div class="results-episode-content">
+          <!-- <div class="results-episode-content-count"></div> -->
+          <div class="results-episode-occurences">
+            <div class="results-episode-occurence episode-occurence" ng-repeat="occurance in episode">
+              <div class="episode-occurence-name">{{ occurance.speaker }}</div>
+              <div class="episode-occurence-context">Hella narwhal Cosby sweater McSweeney's, salvia <span="episode-occurence-term">Facebook</span> before lthey sold out High Life. Umami sriracha.</div>
+              <div class="episode-occurence-time">
+                said at <span>{{ occurance.startTime }}</span>
+              </div>
+              <div class="episode-occurence-actions">
+                <a href="#" class="play-episode">Play</a>
+                <a href="#" class="share-episode">Share</a>
+              </div>
             </div>
           </div>
         </div>
