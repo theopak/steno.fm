@@ -13,19 +13,31 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
   // Show the header and footer for this view.
   GlobalService.showChrome();
   $scope.query = {
-    input: ''
+    input: '',
+    title: '',
+    speaker: '',
+    rest: 'uninitialized'
   };
 
-  // Focus keyboard input in the search field
-  $scope.keypress = function() {
-    document.getElementById('query').focus();
+  // Helper function to grab a variable out of the working copy.
+  var extractFromQuery = function(target) {
+    var tokens = $scope.query.rest.split(' ');
+    for(var i = 0; i < tokens.length; i++) {
+      var pair = tokens[i].split(':');
+      if(pair[0] === target) {
+        $scope.query.rest = $scope.query.rest.replace(pair[0] + ':' + pair[1], '');
+        return pair[1];
+      }
+    }
   };
 
-  // // Accept raw query input from the search field
-  // $scope.$on('submitQuery', function(event, q) {
-  //   console.log('submitQuery happened!', event, q);
-  //   // $scope.query = q;
-  // });
+  // Parse search field input.
+  $scope.parseQuery = function() {
+    $scope.query.rest = $scope.query.input.toLowerCase().trim();
+    $scope.query.speaker = extractFromQuery('speaker');
+    $scope.query.title = extractFromQuery('podcast') || extractFromQuery('title');
+    console.log('ResultsCtrl.parseQuery done on $scope.query:', $scope.query);
+  };
 
   // Search directly on elasticsearch LOL
   var getResults = function() {
@@ -35,8 +47,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
       body: {
         query: {
           match: {
-            // _all: $scope.query.input
-            _all: 'Accidental'
+            _all: $scope.query.input
           }
         }
       }
@@ -54,10 +65,11 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
   getResults();
 
   // Go to a new page for a new search.
-  $scope.submitQueryInput = function() {
+  $scope.submitInput = function() {
     console.log('ResultsCtrl $scope.submitQueryInput() called');
-    $location.path('/search/' + $scope.query.input);
-    $scope.getResults();
+    $scope.parseQuery();
+    $location.path('/search/' + $scope.query.input.trim());
+    getResults();
   };
 
 }]);
