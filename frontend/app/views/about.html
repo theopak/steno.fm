@@ -1,5 +1,13 @@
-<div class="row">
+<div class="row" eui-index="'segments'">
   <div class="large-12 columns">
     <p>This is the about view.</p>
+    <eui-searchbox field="'textField'"></eui-searchbox>
+    <h1>Results</h1>
+    <ul>
+      <li ng-repeat="doc in indexVM.results.hits.hits">
+        {{doc._source | json | limitTo: 500}} <!-- OPTIONAL: display more meaningful data instead of json -->
+      </li>
+    </ul>
+    <eui-simple-paging></eui-simple-paging>
   </div>
 </div>

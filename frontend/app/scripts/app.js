@@ -12,7 +12,8 @@ var app = angular
   .module('stenoApp', [
     'ngAnimate',
     'ngRoute',
-    'mm.foundation'
+    'mm.foundation',
+    'elasticui'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -31,4 +32,5 @@ var app = angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .constant('euiHost', 'http://steno.fm:9200');
