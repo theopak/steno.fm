@@ -74,6 +74,7 @@ $color1: rgb(246, 219, 168);
     }
     .results-podcast-heading {
       @include clearfix();
+      padding: 2rem 0;
     }
     &.ng-enter {
       transform: translateY(5%);
@@ -88,6 +89,7 @@ $color1: rgb(246, 219, 168);
 
   .results-episode {
     margin-left: 8%;
+    margin-bottom: 2.5rem;
     .results-episode-title {
       margin-bottom: 0;
       padding: 20px 30px;
