@@ -7,11 +7,34 @@
     height: auto;
   }
   .search-box {
+    position: relative;
     padding-top: 3rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
+  }
+  .indicator {
+    position: absolute;
+    right: 1.75em;
+    top: 4.35rem;
+    &.ng-hide-add, 
+    &.ng-hide-remove {
+      /* this is required as of 1.3x to properly
+         apply all styling in a show/hide animation */
+      transition: all 0s linear;
+    }
+
+    &.ng-hide-add-active,
+    &.ng-hide-remove-active {
+      /* the transition is defined in the active class */
+      transition: all 1s linear;
+    }
   }
   .f-dropdown {
-  	max-width: 100%;
+    max-width: 100%;
   }
 }
+#query {
+  padding: 1.35rem 2em 1.25rem 1em;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  // vertical-align: baseline;
 }

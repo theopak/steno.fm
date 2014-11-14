@@ -6,22 +6,19 @@
           <h2 class="brand"><strong>Steno</strong>.fm</h1>
           <h4 class="brand subheader">search podcasts by text and speaker</h2>
         </div>
-        <form>
-        <button ng-click="hideBtn()" >Hide</button>
-          <div class="row collapse" ng-controller="SearchCtrl">
-            <div class="small-10 columns">
-              <input 
-                type="text" class="form-control"
-                placeholder="Search podcasts&hellip;" 
-                ng-model="query" 
-                ng-keydown="skipToResultsView(query)"
-                />
-              <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
-          </div>
-          <div class="small-2 columns">
-            <a href="#" class="button postfix">Go</a>
-          </div>
-        </form>
+        <div class="row collapse" ng-controller="SearchCtrl">
+          <div class="small-10 columns">
+            <input 
+              type="text" class="form-control"
+              placeholder="Search podcasts&hellip;" 
+              ng-model="query" 
+              ng-keydown="skipToResultsView(query)"
+              />
+            <span ng-show="isLoading" class="fa fa-refresh fa-spin"></span>
+        </div>
+        <div class="small-2 columns">
+          <a href="#" class="button form-control postfix">Go</a>
+        </div>
       </div>
     </div>
   </div>
