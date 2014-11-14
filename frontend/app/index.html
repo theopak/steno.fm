@@ -21,10 +21,11 @@
      
     <div ng-view></div>
     
-    <footer class="row" ng-hide="GlobalService.isHiddenChrome()">
-      <div class="large-12 columns">
-        <hr />
-        <p>Steno.fm was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>. Views: <a href="/#/">Home</a>, <a href="/#/search">Search Results</a>, <a href="/#/about">About</a>.</p>
+    <footer id="footer" ng-hide="GlobalService.isHiddenChrome()">
+      <div class="row">
+        <div class="medium-8 medium-offset-2 small-12 columns">
+          <p>Steno.fm was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>. Views: <a href="/#/">Home</a>, <a href="/#/search">Search Results</a>, <a href="/#/about">About</a>.</p>
+          </div>
         </div>
       </div>
     </footer>
@@ -54,6 +55,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
     <script src="bower_components/elasticsearch/elasticsearch.js"></script>
+    <script src="bower_components/elasticsearch/elasticsearch.angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
