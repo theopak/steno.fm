@@ -75,6 +75,37 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     }, function (error) {
       console.trace(error.message);
     });
+
+    // Demo
+    $scope.res = 
+    {
+      {'Accidental Tech Podcast': [
+        '99 Always on Vacation in California': {
+          podcastTitle: 'Accidental Tech Podcast',
+          episodeTitle: '99 Always on Vacation in California',
+          startTime: '99:01'
+          speaker: 'Sirracha',
+          desc: 'saucy iOS'
+        },
+        '96 Always on Vacation in California': {
+          podcastTitle: 'Accidental Tech Podcast',
+          episodeTitle: '96 Always on Vacation in California',
+          startTime: '99:06'
+          speaker: 'Sirracha',
+          desc: 'saucy iOS'
+        },
+        '92 Always on Vacation in California': {
+          podcastTitle: 'Accidental Tech Podcast',
+          episodeTitle: '92 Always on Vacation in California',
+          startTime: '99:02'
+          speaker: 'Sirracha',
+          desc: 'saucy iOS'
+        }
+      ]},
+      {'Design Matters': [
+      ]}
+    };
+
   };
 
   // Get results upon page load
