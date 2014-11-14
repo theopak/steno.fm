@@ -29,31 +29,50 @@
         {{ query }}
       </div>
       <div class="alert-box secondary">
-        {{ results }}
+        {{ res }}
       </div>
     </div>
     <div class="large-12 columns">
-      
-      <div class="results-podcast" ng-repeat="podcast in res">
-        <h1>{{ podcast[0][0].podcastTitle }}</h1>
-        <div class="results-episode" ng-repeat="episode in podcast">
-          <h1 class="results-episode-title">{{ episode[0].episodeTitle }}</h1>
-          <div class="results-episode-content">
-          <!-- <div class="results-episode-content-count"></div> -->
-          <div class="results-episode-occurences">
-            <div class="results-episode-occurence episode-occurence" ng-repeat="occurance in episode">
-              <div class="episode-occurence-name">{{ occurance.speaker }}</div>
-              <div class="episode-occurence-context">Hella narwhal Cosby sweater McSweeney's, salvia <span="episode-occurence-term">Facebook</span> before lthey sold out High Life. Umami sriracha.</div>
-              <div class="episode-occurence-time">
-                said at <span>{{ occurance.startTime }}</span>
+
+      <div class="results internal">
+        <div class="results-podcast" ng-repeat="(key, podcast) in res">
+
+          <div class="results-podcast-heading">
+            <div class="results-podcast-heading-artwork">
+              <img src="http://placehold.it/60x60" alt="" />
+            </div>
+            <h1 class="result-podcast-heading-title">{{ key }}</h1>
+          </div>
+
+          <div class="results-episode" ng-repeat="episode in podcast">
+            <h1 class="results-episode-title">{{ episode[0].episodeTitle }}</h1>
+            <div class="results-episode-content">
+              <!-- <div class="results-episode-content-count"></div> -->
+              <div class="results-episode-occurences">
+                <div class="results-episode-occurence episode-occurence" ng-repeat="occurance in episode">
+                  <div class="episode-occurence-name">{{ occurance.speaker }}</div>
+                  <div class="episode-occurence-context">{{ occurance.desc }}</div>
+                  <div class="episode-occurence-time">
+                    said at <span>{{ occurance.startTime }}</span>
+                  </div>
+                  <div class="episode-occurence-actions">
+                    <a href="#" class="play-episode">Play</a>
+                    <a href="#" class="share-episode">Share</a>
+                  </div>
+                </div>
               </div>
-              <div class="episode-occurence-actions">
-                <a href="#" class="play-episode">Play</a>
-                <a href="#" class="share-episode">Share</a>
+              <div class="results-episode-actions">
+                <a href="" class="results-episode-action results-episode-action--expand">See 10 more results</a>
+                <div class="results-episode-action-icons">
+                  <a href="" class="results-episode-action results-episode-action--icon-link">Link</a>
+                  <a href="" class="results-episode-action results-episode-action--icon-link">Share</a>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
+        
       </div>
     </div>
   </div>

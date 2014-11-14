@@ -53,6 +53,16 @@
   .home-intro-wrapper {
     display: table-cell;
     vertical-align: middle;
+    transition: all 5s ease-in;
+    &.ng-enter {
+      transform: translateY(15%);
+      opacity: 0.5;
+      overflow: hidden;
+    }
+    &.ng-enter.ng-enter-active {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
   .home-intro {
     margin-top: -7%;

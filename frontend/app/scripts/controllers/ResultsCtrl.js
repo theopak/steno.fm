@@ -44,7 +44,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     console.log('ResultsCtrl $scope.getResults() called.');
     ResultsService.search({
       index: 'segments',
-      // q: $scope.query.input
+      text: $scope.query.input
     }).then(function (body) {
       console.log('ResultsCtrl $scope.getResults() success: body: ', body);
       var hits = body.hits.hits;
@@ -53,7 +53,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
       $scope.res = {};
       underscore.each(hits, function(value){
         console.log(value);
-        var podcast = 'Podcast Title Placeholder';
+        var podcast = value._source.podcast_title;
         if(!(podcast in $scope.res)) {
             $scope.res[podcast] = {};
         }
@@ -67,7 +67,7 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
           speaker: 'Unknown Speaker',
           desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before they sold out High Life. Umami sriracha.'
         });
-        _.each($source.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
+        underscore.each($scope.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
       });
 
       console.log($scope.res);
@@ -75,6 +75,57 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     }, function (error) {
       console.trace(error.message);
     });
+
+    // Magic
+    $scope.res = {
+      "Accidental Tech Podcast": [
+        {
+          "podcastTitle": "Accidental Tech Podcast",
+          "episodeTitle": "99 Always on Vacation in California",
+          "startTime": "99:01",
+          "speaker": "Sirracha",
+          "desc": "saucy iOS"
+        },
+        {
+          "podcastTitle": "Accidental Tech Podcast",
+          "episodeTitle": "98 Always on Vacation in California",
+          "startTime": "99:08",
+          "speaker": "Sirracha",
+          "desc": "iOS"
+        },
+        {
+          "podcastTitle": "Accidental Tech Podcast",
+          "episodeTitle": "96 Always on Vacation in California",
+          "startTime": "99:01",
+          "speaker": "Sirracha",
+          "desc": "iOS"
+        }
+      ],
+      "Design Matters": [
+        {
+          "podcastTitle": "Design Matters",
+          "episodeTitle": "99 Always on Vacation in California",
+          "startTime": "99:01",
+          "speaker": "Sirracha",
+          "desc": "saucy iOS"
+        },
+        {
+          "podcastTitle": "Design Matters",
+          "episodeTitle": "98 Always on Vacation in California",
+          "startTime": "99:08",
+          "speaker": "Sirracha",
+          "desc": "iOS"
+        },
+        {
+          "podcastTitle": "Design Matters",
+          "episodeTitle": "96 Always on Vacation in California",
+          "startTime": "99:01",
+          "speaker": "Sirracha",
+          "desc": "iOS"
+        }
+      ],
+    };
+
   };
 
   // Get results upon page load

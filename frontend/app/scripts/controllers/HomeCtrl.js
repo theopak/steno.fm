@@ -32,7 +32,7 @@ app.controller('HomeCtrl', ['$scope', '$http', '$location', 'GlobalService', fun
     $location.path('/search/' + $scope.query.input);
   };
 
-  // Hide the header and footer for this view.
-  GlobalService.hideChrome();
+  // Focus!
+  document.getElementById('query').focus();
 
 }]);
