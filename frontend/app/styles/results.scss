@@ -18,12 +18,12 @@ $color1: rgb(246, 219, 168);
     margin: 0 1em 0 0;
   }
   h1 {
-    margin: 0;
-    padding: 1rem 0 0;
-    font-size: 1.2em;
-    line-height: 1.25rem;
-    font-weight: 400;
-    color: lighten($fg, 10);
+    // margin: 0;
+    // padding: 1rem 0 0;
+    // font-size: 1.2em;
+    // line-height: 1.25rem;
+    // font-weight: 400;
+    // color: lighten($fg, 10);
   }
   .piece, .podcast, .episode, .date {
     color: $fg;
@@ -67,10 +67,10 @@ $color1: rgb(246, 219, 168);
       width: 8%;
       float: left;
     }
-    .results-podcast-heading-title {
+    h1.results-podcast-heading-title {
       font-size: 2rem;
       line-height: 60px;
-      color: #fefefe;
+      color: #fefefe !important;
     }
     .results-podcast-heading {
       @include clearfix();

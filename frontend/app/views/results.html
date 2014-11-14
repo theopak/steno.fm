@@ -22,18 +22,16 @@
 </div>
 
 <div id="results">
-
-  <div class="row">
-    <div class="large-12 columns" id="debug" style="display: none;">
-      <div class="alert-box secondary">
-        {{ query }}
-      </div>
-      <div class="alert-box secondary">
-        {{ res }}
-      </div>
+    <div class="row">
+        <div class="large-12 columns" id="debug" style="display: none;">
+            <div class="alert-box secondary">
+                {{ query }}
+            </div>
+        <div class="alert-box secondary">
+            {{ res }}
+        </div>
     </div>
     <div class="large-12 columns">
-
 
         <div class="results internal">
             <div class="results-podcast" ng-repeat="(key, podcast) in res">
@@ -41,7 +39,7 @@
                     <div class="results-podcast-heading-artwork">
                         <img src="http://placehold.it/60x60" alt="" />
                     </div>
-                    <h1 class="result-podcast-heading-title">{{ key }}</h1>
+                    <h1 class="results-podcast-heading-title">{{ key }}</h1>
                 </div>
                 <div class="results-episode" ng-repeat="episode in podcast">
                     <h1 class="results-episode-title">{{ episode[0].episodeTitle }}</h1>
