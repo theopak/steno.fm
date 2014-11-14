@@ -1,11 +1,14 @@
 app.directive('audiothing', function () {
     return {
         scope: {
-            timestart: '&',
+            timestart: '=',
         },
         link: function (scope, element, attrs) {
-            var test = $(element).data('start');
-            console.log(attrs.timestart)
+            var weirdStart = scope.timestart
+            var secsPieces = weirdStart.split(',')[0].split(':');
+            var secs = parseInt(secsPieces[0])*60*60 + parseInt(secsPieces[1])*60 + parseInt(secsPieces[2]);
+            this.currentTime = secs;
+            console.log(this.currentTime);
         }
     };
 });
