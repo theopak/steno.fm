@@ -100,7 +100,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: '<%= yeoman.app %>/styles/**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass', 'newer:copy:styles', 'autoprefixer']
       },
       // jade: {
       //   files: '<%= yeoman.app %>/**/*.jade',
@@ -425,6 +425,7 @@ module.exports = function (grunt) {
 
 
   grunt.loadNpmTasks('grunt-autoshot');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
 
   // grunt.registerTask('compile-jade', ['jade']);
@@ -487,6 +488,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'sass',
+    'autoprefixer',
     'test',
     'build'
   ]);
