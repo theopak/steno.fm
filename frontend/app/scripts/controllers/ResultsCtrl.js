@@ -64,9 +64,9 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
           podcastTitle:   value._source.podcast_title,
           episodeTitle:   value._source.cluster_episode,
           startTime:      value._source.start_time,
-          mediaThumbnail: underscore.flatten(value._source.media_thumbnail),
+          mediaThumbnail: value._source.media_thumbnail,
           remoteUrl:      value._source.remote_url,
-          speaker:        'Unknown Speaker',
+          speaker:        value._source.speaker,
           desc:           value._source.text
         });
         underscore.each($scope.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
