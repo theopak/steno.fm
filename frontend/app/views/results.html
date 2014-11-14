@@ -43,29 +43,28 @@
                     </div>
                     <h1 class="result-podcast-heading-title">{{ key }}</h1>
                 </div>
-            </div>
-            <div class="results-episode" ng-repeat="episode in podcast">
-                <h1 class="results-episode-title">{{ episode[0].episodeTitle }}</h1>
-                <div class="results-episode-content">
-              <!-- <div class="results-episode-content-count"></div> -->
-                    <div class="results-episode-occurences">
-                        <div class="results-episode-occurence episode-occurence" ng-repeat="occurance in episode">
-                            <div class="episode-occurence-name">{{ occurance.speaker }}</div>
-                            <div class="episode-occurence-context">{{ occurance.desc }}</div>
-                            <div class="episode-occurence-time">
-                            said at <span>{{ occurance.startTime }}</span>
+                <div class="results-episode" ng-repeat="episode in podcast">
+                    <h1 class="results-episode-title">{{ episode[0].episodeTitle }}</h1>
+                    <div class="results-episode-content">
+                    <!-- <div class="results-episode-content-count"></div> -->
+                        <div class="results-episode-occurences">
+                            <div class="results-episode-occurence episode-occurence" ng-repeat="occurance in episode">
+                                <div class="episode-occurence-name">{{ occurance.speaker }}</div>
+                                <div class="episode-occurence-context">{{ occurance.desc }}</div>
+                                <div class="episode-occurence-time">said at <span>{{ occurance.startTime }}</span></div>
+                            </div>
+                        <div class="episode-occurence-actions">
+                            <a href="#" class="play-episode">Play</a>
+                            <a href="#" class="share-episode">Share</a>
                         </div>
-                    <div class="episode-occurence-actions">
-                        <a href="#" class="play-episode">Play</a>
-                        <a href="#" class="share-episode">Share</a>
                     </div>
                 </div>
-            </div>
-            <div class="results-episode-actions">
-                <a href="" class="results-episode-action results-episode-action--expand">See 10 more results</a>
-                <div class="results-episode-action-icons">
-                    <a href="" class="results-episode-action results-episode-action--icon-link">Link</a>
-                    <a href="" class="results-episode-action results-episode-action--icon-link">Share</a>
+                <div class="results-episode-actions">
+                    <a href="" class="results-episode-action results-episode-action--expand">See 10 more results</a>
+                    <div class="results-episode-action-icons">
+                        <a href="" class="results-episode-action results-episode-action--icon-link">Link</a>
+                        <a href="" class="results-episode-action results-episode-action--icon-link">Share</a>
+                    </div>
                 </div>
             </div>
         </div>
