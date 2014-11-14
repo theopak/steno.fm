@@ -61,11 +61,11 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
           $scope.res[podcast][value._source.cluster_episode] = [];
         }
         $scope.res[podcast][value._source.cluster_episode].push({
-          podcastTitle: podcast,
+          podcastTitle: value._source.podcast_title,
           episodeTitle: value._source.cluster_episode,
           startTime: value._source.start_time,
           speaker: 'Unknown Speaker',
-          desc: 'Hella narwhal Cosby sweater McSweeney\'s, salvia Facebook before they sold out High Life. Umami sriracha.'
+          desc: value._source.text
         });
         underscore.each($scope.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
       });
@@ -75,56 +75,6 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     }, function (error) {
       console.trace(error.message);
     });
-
-    // Magic
-    $scope.res = {
-      "Accidental Tech Podcast": [
-        {
-          "podcastTitle": "Accidental Tech Podcast",
-          "episodeTitle": "99 Always on Vacation in California",
-          "startTime": "99:01",
-          "speaker": "Sirracha",
-          "desc": "saucy iOS"
-        },
-        {
-          "podcastTitle": "Accidental Tech Podcast",
-          "episodeTitle": "98 Always on Vacation in California",
-          "startTime": "99:08",
-          "speaker": "Sirracha",
-          "desc": "iOS"
-        },
-        {
-          "podcastTitle": "Accidental Tech Podcast",
-          "episodeTitle": "96 Always on Vacation in California",
-          "startTime": "99:01",
-          "speaker": "Sirracha",
-          "desc": "iOS"
-        }
-      ],
-      "Design Matters": [
-        {
-          "podcastTitle": "Design Matters",
-          "episodeTitle": "99 Always on Vacation in California",
-          "startTime": "99:01",
-          "speaker": "Sirracha",
-          "desc": "saucy iOS"
-        },
-        {
-          "podcastTitle": "Design Matters",
-          "episodeTitle": "98 Always on Vacation in California",
-          "startTime": "99:08",
-          "speaker": "Sirracha",
-          "desc": "iOS"
-        },
-        {
-          "podcastTitle": "Design Matters",
-          "episodeTitle": "96 Always on Vacation in California",
-          "startTime": "99:01",
-          "speaker": "Sirracha",
-          "desc": "iOS"
-        }
-      ],
-    };
 
   };
 
