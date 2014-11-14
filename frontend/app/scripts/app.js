@@ -14,7 +14,8 @@ var app = angular
     'ngRoute',
     'mm.foundation',
     'elasticsearch',
-    'ngUnderscore'
+    'ngUnderscore',
+    'ngSanitize'
   ])
   .config(function ($routeProvider) {
     $routeProvider

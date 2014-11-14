@@ -7,7 +7,10 @@ app.directive('audiothing', function () {
             var weirdStart = scope.timestart
             var secsPieces = weirdStart.split(',')[0].split(':');
             var secs = parseInt(secsPieces[0])*60*60 + parseInt(secsPieces[1])*60 + parseInt(secsPieces[2]);
-            this.currentTime = secs;
+            $(element).bind('canplay', function(){
+                console.log('333333', $(element)[0], secs);
+                $(element)[0].currentTime = secs;
+            })
             console.log(this.currentTime);
         }
     };

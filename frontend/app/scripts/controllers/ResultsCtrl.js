@@ -7,8 +7,8 @@
  * # ResultsCtrl
  * Controller for the `results` view.
  */
-app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', 'ResultsService', 'GlobalService', 'underscore',
-  function ($scope, $http, $routeParams, $location, ResultsService, GlobalService, underscore) {
+app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', 'ResultsService', 'GlobalService', 'underscore', '$sce',
+  function ($scope, $http, $routeParams, $location, ResultsService, GlobalService, underscore, $sce) {
   
   // Show the header and footer for this view.
   GlobalService.showChrome();
@@ -38,6 +38,9 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
     $scope.query.title = extractFromQuery('podcast') || extractFromQuery('title');
     console.log('ResultsCtrl.parseQuery done on $scope.query:', $scope.query);
   };
+$scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src);
+  }
 
   // Search directly on elasticsearch LOL
   var getResults = function() {
@@ -61,14 +64,14 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
           $scope.res[podcast][value._source.cluster_episode] = [];
         }
         $scope.res[podcast][value._source.cluster_episode].push({
-          podcastTitle:   value._source.podcast_title,
-          episodeTitle:   value._source.cluster_episode,
-          startTime:      value._source.start_time,
-          mediaThumbnail: underscore.flatten(value._source.media_thumbnail),
-          remoteUrl:      value._source.remote_url,
-          speaker:        'Unknown Speaker',
-          desc:           value._source.text
-        });
+          podcastTitle:   value._source.podcast_title,
+          episodeTitle:   value._source.cluster_episode,
+          startTime:      value._source.start_time,
+          mediaThumbnail: value._source.media_thumbnail,
+          remoteUrl:      value._source.remote_url,
+          speaker:        'Unknown Speaker',
+          desc:           value._source.text
+        });
         underscore.each($scope.query.term, function(v){ $scope.res[podcast][value._source.cluster_episode].desc = $scope.res[value._source.cluster_episode].desc.replace(v, '<strong>' + v + '</strong>'); });
       });
 
