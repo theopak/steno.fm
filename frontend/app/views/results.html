@@ -1,7 +1,7 @@
 <div class="contain-to-grid fixed" id="header" ng-hide="GlobalService.isHiddenChrome()">
   <nav class="top-bar" data-topbar>
     <div class="search-box" ng-controller="SearchCtrl">
-      <form ng-submit="submitQueryInput()">
+      <form ng-submit="submitInput()">
         <div class="row">
           <div class="small-12 columns">
             <input 
@@ -9,6 +9,7 @@
               id="query" class="form-control"
               placeholder="Search podcasts&hellip;"
               ng-model="query.input"
+              ng-keyup="parseQuery()"
             />
             <span ng-show="isLoading" class="indicator fa fa-refresh fa-spin"></span>
           </div>
@@ -21,7 +22,7 @@
 <div id="results">
   <div class="row">
     <div class="large-12 columns">
-      {{ query.input }} -- {{ results }}
+      {{ query }} <br/><hr/> {{ results }}
     </div>
     <div class="large-12 columns">
       <div class="card" ng-repeat="result in results">
