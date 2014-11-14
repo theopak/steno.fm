@@ -2,6 +2,21 @@
 // common.scss
 //
 
+// base styles
+
+h1, h2, h3, h4 {
+  font-family: $display-font-stack;
+}
+
+
+// layout base styles
+.internal {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+//
+
 #header {
   background: #1a1919 url(../images/home.png) repeat top;
   .top-bar {
@@ -59,3 +74,5 @@
 }
 #query {
 }
+
+

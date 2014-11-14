@@ -18,14 +18,8 @@
     margin-top: 50%;
     margin-bottom: 2rem;
     height: 7rem;
-    // transform: translate(-50%, -50%);
-    // background: beige;
     font-family: sans-serif;
     text-align: center;
-  }
-  .brand {
-    margin: 0rem;
-    color: #fafafa;
   }
   .strong {
     font-weight: 600;
@@ -33,4 +27,46 @@
   .form-control {
     margin-top: 0.75rem;
   }
+}
+.identity {
+  .identity-name {
+    margin: 0;
+    color: #fafafa;
+    font-size: 4.5rem;
+    line-height: 1.4;
+    font-weight: 700;
+    .domain {
+      font-weight: 300;
+      color: $spot-color;
+    }
+  }
+  .identity-tagline {
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    line-height: 2rem;
+    color: $grey-green;
+  }
+}
+
+.home {
+  display: table;
+  .home-intro-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .home-intro {
+    margin-top: -7%;
+    text-align: center;
+  }
+}
+
+.search-box {
+  margin: 0 auto;
+  input {
+    padding: 20px;
+    height: 4.6785rem;
+    background: rgba(#fff, 0.8);
+    border: 2px solid #fff;
+  }
+  width: 60%;
 }
