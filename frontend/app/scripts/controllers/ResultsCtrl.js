@@ -43,14 +43,8 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
   var getResults = function() {
     console.log('ResultsCtrl $scope.getResults() called.');
     ResultsService.search({
-      index: 'episodes',
-      body: {
-        query: {
-          match: {
-            _all: $scope.query.input
-          }
-        }
-      }
+      index: 'segments',
+      // q: $scope.query.input
     }).then(function (body) {
       console.log('ResultsCtrl $scope.getResults() success: body: ', body);
       var hits = body.hits.hits;
@@ -67,8 +61,9 @@ app.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', '$location', '
   // Go to a new page for a new search.
   $scope.submitInput = function() {
     console.log('ResultsCtrl $scope.submitQueryInput() called');
+    $scope.query.input = $scope.query.input.trim();
     $scope.parseQuery();
-    $location.path('/search/' + $scope.query.input.trim());
+    $location.path('/search/' + $scope.query.input);
     getResults();
   };
 
