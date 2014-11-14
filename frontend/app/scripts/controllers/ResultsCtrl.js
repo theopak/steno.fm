@@ -7,8 +7,9 @@
  * # ResultsCtrl
  * Controller for the `results` view.
  */
-app.controller('ResultsCtrl', function ($scope, $http) {
+app.controller('ResultsCtrl', ['$scope', '$http', function ($scope, $http) {
   
-  // TODO
+  // Show the header and footer for this view.
+  $scope.GlobalUi.showChrome();
 
-});
+}]);

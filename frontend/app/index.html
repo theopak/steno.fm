@@ -23,25 +23,23 @@
       <nav class="top-bar" data-topbar>
         <div ng-controller="SearchCtrl">
           <div class="row">
-            <div class="small-12 columns">
-              <form class="search-box">
-                <div class="row collapse">
-                  <div class="small-10 columns">
-                    <input 
-                      type="text" class="form-control"
-                      placeholder="Search podcasts&hellip;" 
-                      ng-model="selected" 
-                      typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
-                      typeahead-loading="isLoading" 
-                      typeahead-min-length="2"
-                      />
-                    <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
-                  </div>
-                  <div class="small-2 columns">
-                    <a href="#" class="button postfix">Go</a>
-                  </div>
+            <div class="small-12 columns search-box">
+              <div class="row collapse">
+                <div class="small-10 columns">
+                  <input 
+                    type="text" class="form-control"
+                    placeholder="Search podcasts&hellip;" 
+                    ng-model="query" 
+                    typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
+                    typeahead-loading="isLoading" 
+                    typeahead-min-length="2"
+                    />
+                  <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
                 </div>
-              <form>
+                <div class="small-2 columns">
+                  <a href="#" class="button postfix">Go</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -50,7 +48,7 @@
      
     <div ng-view></div>
     
-    <footer class="row" ng-hide="hideChrome()">
+    <footer class="row" ng-hide="GlobalUi.isHiddenChrome()">
       <div class="large-12 columns">
         <hr/>
         <p>Steno.fm was made by Trevor Phillippi, Theo Pak, Derek Schultz, and Dan Bulger for the <a rel="nofollow" href="http://facebook.com/hackathon">Facebook Global Hackathon Finals 2014</a>. Source on <a href="https://github.com/theopak/steno">github</a>. Views: <a href="/#">Home</a>, <a href="/#search/">Search Results</a>, <a href="/#/about">About</a>.</p>

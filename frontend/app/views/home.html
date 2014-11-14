@@ -13,11 +13,8 @@
               <input 
                 type="text" class="form-control"
                 placeholder="Search podcasts&hellip;" 
-                ng-model="selected" 
-                typeahead="address for address in getLocation($viewValue) | filter:$viewValue" 
-                typeahead-loading="isLoading" 
-                typeahead-min-length="2"
-                typeahead-template-url="customTemplate.html"
+                ng-model="query" 
+                ng-keydown="skipToResultsView(query)"
                 />
               <span ng-show="isLoading" class="glyphicon glyphicon-refresh"></span>
           </div>

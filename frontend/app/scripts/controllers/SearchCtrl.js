@@ -7,11 +7,12 @@
  * # SearchCtrl
  * Controller for the `search` view which appears in the topbar on every page.
  */
-app.controller('SearchCtrl', function ($scope, $http) {
+app.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
   
   
-  $scope.selected = undefined;  // model (angular expression) assigned to
+  $scope.query = undefined;     // model (angular expression) that selected/field content is assigned to
   $scope.isLoading = false;     // true if the typeahead is asyncronously loading results
+
   // Any function returning a promise object can be used to load values asynchronously
   $scope.getLocation = function(val) {
     return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
@@ -28,4 +29,4 @@ app.controller('SearchCtrl', function ($scope, $http) {
     });
   };
 
-});
+}]);

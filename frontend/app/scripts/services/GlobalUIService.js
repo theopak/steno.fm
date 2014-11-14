@@ -1,4 +1,5 @@
 'use strict';
+
 // Service to store and retrieve application wide data
 app.factory('GlobalUi', [function(){
 	var Globals = {
