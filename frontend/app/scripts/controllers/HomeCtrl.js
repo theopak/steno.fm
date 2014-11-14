@@ -9,9 +9,10 @@
  */
 app.controller('HomeCtrl', function ($scope, $http) {
   
-  $scope.hideChrome = true;     // true if the top-bar and footer should be hidden
+  // $scope.hideChrome = true;     // true if the top-bar and footer should be hidden
   $scope.selected = undefined;	// model (angular expression) assigned to
-  $scope.isLoading = false;			// true if the typeahead is asyncronously loading results
+  $scope.isLoading = false;			// true if the typeahead is currently loading async results
+
   // Any function returning a promise object can be used to load values asynchronously
   $scope.getLocation = function(val) {
     return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
