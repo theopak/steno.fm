@@ -40,7 +40,7 @@
             <div class="results-podcast" ng-repeat="(key, podcast) in res">
                 <div class="results-podcast-heading">
                     <div class="results-podcast-heading-artwork">
-                        <img src="http://placehold.it/60x60/111111/111111?text=" alt="{{ podcast.mediaThumbnail }}" />
+                        <!--<img src="{{ podcast.mediaThumbnail }}" alt="{{ key }}" />-->
                     </div>
                     <h1 class="results-podcast-heading-title">{{ key }}</h1>
                 </div>
@@ -62,6 +62,7 @@
                     </div>
                 </div>
                 <div class="results-episode-actions">
+                    <a href="" class="results-episode-action results-episode-action--expand">See more results</a>
                     <div class="results-episode-action-icons">
                         <a href="" class="results-episode-action results-episode-action--icon-link">Link</a>
                         <a href="" class="results-episode-action results-episode-action--icon-link">Share</a>
