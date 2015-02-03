@@ -9,9 +9,11 @@
           <div class="small-12 columns">
             <input 
               type="text" 
-              id="query" class="form-control"
+              id="query" 
+              class="form-control"
               placeholder="Search podcasts&hellip;"
               ng-model="query.input"
+              ng-keyup="parseQuery()"
             />
             <span ng-show="isLoading" class="indicator fa fa-refresh fa-spin"></span>
           </div>
