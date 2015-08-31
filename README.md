@@ -2,16 +2,14 @@
 
 **The search engine for podcasts.** Search by phrase, speaker, and podcast title.
 
-Steno.fm was built in 24 hours by (in alphabetical order) RPI seniors Dan Bulger, Theo Pak, Trevor Phillippi, and Derek Schultz at the [Facebook Global Hackathon Finals 2014](http://goo.gl/d4ldms). It won an honorable mention. As a result of being a hackathon project, the code is absolute garbage and needs to be made scalable and manageable.
+Steno.fm started as a 24-hour project at the [Facebook Global Hackathon Finals 2014](http://goo.gl/d4ldms), where the project won an honorable mention.
 
-![screenshot](screenshots.png)
+[![demo](http://img.youtube.com/vi/TkXD0vIDBTA/0.jpg)](http://www.youtube.com/watch?v=TkXD0vIDBTA)
 
 
-## Developing
+## Contributing
 
-_TODO: rewrite this._
-
-The steno.fm project has two parts: web and indexer.
+Pull requests welcome. The steno.fm project has two parts: the web frontend and the indexer.
 
 Get started like this:
 
@@ -34,3 +32,13 @@ Deploy like this:
     $ cd /path/to/srv/or/whatever/derek/knows/the/answer
     $ cd frontend/
     $ nodejs web.js
+
+
+## TODO
+
+- [ ] Rewrite frontend in React.js using ES6
+- [ ] Remove bower and all existing grunt tasks
+- [ ] Add webpack
+- [ ] Add stenodexer to repo
+- [ ] Tests
+- [ ] Continuous Deployment
