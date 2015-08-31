@@ -1,13 +1,17 @@
-# [Steno.fm](http://steno.fm) is the search engine for podcasts
+# [Steno.fm](http://steno.fm) [![Circle CI](https://circleci.com/gh/theopak/steno.svg?style=svg)](https://circleci.com/gh/theopak/steno)
 
-Type something in to get a list of audio snippets identifying the time and speaker of relevant search results for all podcasts in the index. Search by phrase, speaker, and podcast title.
+**The search engine for podcasts.** Search by phrase, speaker, and podcast title.
 
 Steno.fm was built in 24 hours by (in alphabetical order) RPI seniors Dan Bulger, Theo Pak, Trevor Phillippi, and Derek Schultz at the [Facebook Global Hackathon Finals 2014](http://goo.gl/d4ldms). It won an honorable mention. As a result of being a hackathon project, the code is absolute garbage and needs to be made scalable and manageable.
 
-![screenshot](screenshots/local-1440x1024-index.png)
+![screenshot](screenshots.png)
 
 
-## Contributing
+## Developing
+
+_TODO: rewrite this._
+
+The steno.fm project has two parts: web and indexer.
 
 Get started like this:
 
