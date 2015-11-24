@@ -2,7 +2,7 @@
 
 # [Steno.fm](http://steno.fm)
 
-[![Circle CI](https://circleci.com/gh/theopak/steno.svg?style=svg)](https://circleci.com/gh/theopak/steno)
+[![Circle CI](https://circleci.com/gh/theopak/steno.fm.svg?style=svg)](https://circleci.com/gh/theopak/steno.fm)
 [![Dependency Status](https://david-dm.org/theopak/steno.fm.svg)](https://david-dm.org/theopak/steno.fm)
 
 **The search engine for podcasts. Search by phrase, speaker, and podcast title.** Steno.fm started as a 24-hour project at the [Facebook Global Hackathon Finals 2014](http://goo.gl/d4ldms), where the project won an honorable mention.
