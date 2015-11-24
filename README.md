@@ -1,10 +1,11 @@
-# [Steno.fm](http://steno.fm) [![Circle CI](https://circleci.com/gh/theopak/steno.svg?style=svg)](https://circleci.com/gh/theopak/steno)
+[![demo](screenshot.png)](http://www.youtube.com/watch?v=TkXD0vIDBTA)
 
-**The search engine for podcasts.** Search by phrase, speaker, and podcast title.
+# [Steno.fm](http://steno.fm)
 
-Steno.fm started as a 24-hour project at the [Facebook Global Hackathon Finals 2014](http://goo.gl/d4ldms), where the project won an honorable mention.
+[![Circle CI](https://circleci.com/gh/theopak/steno.svg?style=svg)](https://circleci.com/gh/theopak/steno)
+[![Dependency Status](https://david-dm.org/theopak/steno.fm.svg)](https://david-dm.org/theopak/steno.fm)
 
-[![demo](http://img.youtube.com/vi/TkXD0vIDBTA/0.jpg)](http://www.youtube.com/watch?v=TkXD0vIDBTA)
+**The search engine for podcasts. Search by phrase, speaker, and podcast title.** Steno.fm started as a 24-hour project at the [Facebook Global Hackathon Finals 2014](http://goo.gl/d4ldms), where the project won an honorable mention.
 
 
 ## Contributing
@@ -36,9 +37,11 @@ Deploy like this:
 
 ## TODO
 
-- [ ] Rewrite frontend in React.js using ES6
-- [ ] Remove bower and all existing grunt tasks
-- [ ] Add webpack
-- [ ] Add stenodexer to repo
-- [ ] Tests
+- [ ] Client
+  - [ ] Rewrite in React Redux
+  - [ ] Remove bower and all existing grunt tasks
+  - [ ] Add webpack
+- [ ] Server (aka "stenodexer")
+  - [ ] Open-source
+  - [ ] Unit tests
 - [ ] Continuous Deployment
